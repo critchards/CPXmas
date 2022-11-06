@@ -12,7 +12,7 @@ typedef struct{
 }SONGS;
 
 //Mario main theme melody
-int const mario_melody[] PROGMEM = {
+extern int const mario_melody[] PROGMEM = {
 
   NOTE_E7, NOTE_E7, 0, NOTE_E7, 
   0, NOTE_C7, NOTE_E7, 0,
@@ -41,7 +41,7 @@ int const mario_melody[] PROGMEM = {
 };
 
 //Mario main them tempo
-int const mario_tempo[] PROGMEM = {
+extern int const mario_tempo[] PROGMEM = {
   12, 12, 12, 12, 
   12, 12, 12, 12,
   12, 12, 12, 12,
@@ -303,7 +303,7 @@ const int jinglebellrock_tempo[] PROGMEM = {
 24, 24, 24, 9, 12, 
 
 24, 12, 24, 24, 12, 24, 
-24, 24, 24, 3, 
+24, 24, 24, 6, 
 12, 24, 24, 24, 24, 12,
 12, 24, 9, 12,
 
@@ -313,7 +313,7 @@ const int jinglebellrock_tempo[] PROGMEM = {
 24, 24, 24, 9, 12, 
 
 24, 12, 24, 24, 12, 24, 
-24, 24, 24, 3, 
+24, 24, 24, 6, 
 12, 24, 24, 24, 12, 
 6, 6
 

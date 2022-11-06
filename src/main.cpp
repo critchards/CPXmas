@@ -33,9 +33,9 @@ uint32_t christmas_colors[] = {
 };
  
 //collection of songs from mariobrothers
-SONGS marioBros[] =
+SONGS games[] =
 {
-  {mario_melody, mario_tempo, NUMELEMENTS(mario_melody), 666},
+  {mario_melody, mario_tempo, NUMELEMENTS(mario_melody), 1200},
   {underworld_melody, underworld_tempo, NUMELEMENTS(underworld_melody), 1600},
 };
 
@@ -54,11 +54,13 @@ SONGS marioBros[] =
 
 SONGS christmas[] =
 {
-  {jingle_melody, jingle_tempo, NUMELEMENTS(jingle_melody),550},
-  {wish_melody, wish_tempo, NUMELEMENTS(wish_melody), 420},
-  {helpfallinginlove_melody, helpfallinginlove_tempo, NUMELEMENTS(helpfallinginlove_melody), 800},
-  {santaclaus_melody, santaclaus_tempo, NUMELEMENTS(santaclaus_melody), 800},
-  {jinglebellrock_melody, jinglebellrock_tempo, NUMELEMENTS(jinglebellrock_melody), 500}
+  {jingle_melody, jingle_tempo, NUMELEMENTS(jingle_melody),2000},
+  {wish_melody, wish_tempo, NUMELEMENTS(wish_melody), 2500},
+  {helpfallinginlove_melody, helpfallinginlove_tempo, NUMELEMENTS(helpfallinginlove_melody), 2000},
+  {santaclaus_melody, santaclaus_tempo, NUMELEMENTS(santaclaus_melody), 2000},
+  {jinglebellrock_melody, jinglebellrock_tempo, NUMELEMENTS(jinglebellrock_melody), 2500},
+  {carolofthebells_melody, carolofthebells_tempo, NUMELEMENTS(carolofthebells_melody), 2500},
+  {herecomesthesun_melody, herecomesthesun_tempo, NUMELEMENTS(herecomesthesun_melody), 5000}
 };
 
 bool newSong;           //flag to handle when a new song is playing
@@ -84,10 +86,22 @@ void loop()
   delay(5000);
  */
 
-  songPlaying = &marioBros[1];
+  //songPlaying = &marioBros[1];
 
   if(newSong)
   {
+    int trackPlaying;
+    if(CircuitPlayground.slideSwitch())
+    {
+      trackPlaying = random(NUMELEMENTS(games));
+      Serial.print("Playing from games[], track ");
+      Serial.println(trackPlaying);
+      songPlaying = & games[trackPlaying];
+    }
+    else{
+      songPlaying = & christmas[random(NUMELEMENTS(christmas))];
+    }
+    //songPlaying = & christmas[6]; //to select a particular song
     currentNote = 0;
     noteDuration = songPlaying->beat_ms / (int )pgm_read_word_near(&(songPlaying->tempos[currentNote]));
     newSong = 0;
@@ -98,11 +112,15 @@ void loop()
   {
     conductor = millis();
     noteDuration = songPlaying->beat_ms / (int )pgm_read_word_near(&(songPlaying->tempos[currentNote]));
+    //Serial.println((int ) pgm_read_word_near(&(songPlaying->melodies[currentNote])));
     tone(melodyPin, (int ) pgm_read_word_near(&(songPlaying->melodies[currentNote])), noteDuration);
     currentNote++;
     if(currentNote > songPlaying->size)
     {
+      //Serial.println("end of song reached");
+      //Serial.println(songPlaying->size);
       newSong = 1;
+      noTone(melodyPin);
       delay(PACE);
     }
   }
