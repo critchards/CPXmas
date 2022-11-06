@@ -5,13 +5,14 @@
 //also need to capture length of each since sizeof() doesnt work with pointers
 //struct definition must be in seperated .h file to avoid Arduino issue of prototype declaration
 typedef struct{
-  int *melodies;
-  int *tempos;
-  int size;     
+  const int *melodies;
+  const int *tempos;
+  const int size;
+  const int beat_ms;     
 }SONGS;
 
 //Mario main theme melody
-extern int mario_melody[] = {
+int const mario_melody[] PROGMEM = {
 
   NOTE_E7, NOTE_E7, 0, NOTE_E7, 
   0, NOTE_C7, NOTE_E7, 0,
@@ -40,7 +41,7 @@ extern int mario_melody[] = {
 };
 
 //Mario main them tempo
-extern int mario_tempo[] = {
+int const mario_tempo[] PROGMEM = {
   12, 12, 12, 12, 
   12, 12, 12, 12,
   12, 12, 12, 12,
@@ -68,7 +69,7 @@ extern int mario_tempo[] = {
 };
 
 //Underworld melody
-extern int underworld_melody[] = {
+extern int const underworld_melody[] PROGMEM = {
   NOTE_C4, NOTE_C5, NOTE_A3, NOTE_A4, 
   NOTE_AS3, NOTE_AS4, 0,
   0,
@@ -91,7 +92,7 @@ extern int underworld_melody[] = {
 };
 
 //Underwolrd tempo
-extern int underworld_tempo[] = {
+extern int const underworld_tempo[] PROGMEM = {
   12, 12, 12, 12, 
   12, 12, 6,
   3,
@@ -113,7 +114,7 @@ extern int underworld_tempo[] = {
   3, 3, 3
 };
 
-extern int jingle_melody[] = {
+const int jingle_melody[] PROGMEM = {
   NOTE_B4, NOTE_B4, NOTE_B4,
   NOTE_B4, NOTE_B4, NOTE_B4,
   NOTE_B4, NOTE_D5, NOTE_G4, NOTE_A4, 
@@ -124,7 +125,7 @@ extern int jingle_melody[] = {
   NOTE_A4, NOTE_D5, 0
 };
 
-extern int jingle_tempo[] = {
+const int jingle_tempo[] PROGMEM = {
   12, 12, 6,
   12, 12, 6,
   12, 12, 12, 12,
@@ -137,7 +138,7 @@ extern int jingle_tempo[] = {
 
 // We wish you a merry Christmas
 
-extern int wish_melody[] = {
+const int wish_melody[] PROGMEM = {
   NOTE_A4, 
   NOTE_D5, NOTE_D5, NOTE_E5, NOTE_D5, NOTE_CS5,
   NOTE_B4, NOTE_G4, NOTE_B4,
@@ -149,7 +150,7 @@ extern int wish_melody[] = {
   NOTE_D5
 };
 
-extern int wish_tempo[] = {
+const int wish_tempo[] PROGMEM = {
   12,
   12, 24, 24, 24, 24,
   12, 12, 12,
@@ -162,7 +163,7 @@ extern int wish_tempo[] = {
 };
 
 //Santa claus is comin' to town melody 
-int santaclaus_melody[] = {
+const int santaclaus_melody[] PROGMEM = {
 NOTE_G4, 
 NOTE_E4, NOTE_F4, NOTE_G4,NOTE_G4, NOTE_G4,
 NOTE_A4, NOTE_B4, NOTE_C5, NOTE_C5,
@@ -185,7 +186,7 @@ NOTE_C4
 };
 
 ///Santa claus is comin' to town
-int santaclaus_tempo[] = {
+const int santaclaus_tempo[] PROGMEM = {
 
 12,
 24, 24, 12, 9, 24,
@@ -210,7 +211,7 @@ int santaclaus_tempo[] = {
 };
 
 //I can't help falling in love with you melody
-int helpfallinginlove_melody[] = {
+const int helpfallinginlove_melody[] PROGMEM = {
 
 NOTE_D2, NOTE_A3, NOTE_D4,  NOTE_FS4, NOTE_D4, NOTE_A3, 
 NOTE_A2, NOTE_A3, NOTE_CS4, NOTE_E4, NOTE_CS4, NOTE_A3, 
@@ -239,7 +240,7 @@ NOTE_D4
 };
 
 ///I can't help falling in love with you tempo
-int helpfallinginlove_tempo[] = {
+const int helpfallinginlove_tempo[] PROGMEM = {
 
 24, 24, 24, 24, 24, 24, 
 24, 24, 24, 24, 24, 24, 
@@ -268,7 +269,7 @@ int helpfallinginlove_tempo[] = {
 };
 
 //Jingle bell rock melody
-int jinglebellrock_melody[] = {
+const int jinglebellrock_melody[] PROGMEM = {
 
 NOTE_C5, NOTE_C5, NOTE_C5, NOTE_B4, NOTE_B4, NOTE_B4,
 NOTE_A4, NOTE_B4, NOTE_A4, NOTE_E4, 0,
@@ -293,7 +294,7 @@ NOTE_C5, 0
 };
 
 ///Jingle bell rock tempo
-int jinglebellrock_tempo[] = {
+const int jinglebellrock_tempo[] PROGMEM = {
 
 24, 24, 12, 24, 24, 12,
 24, 24, 24, 9, 12, 
@@ -320,7 +321,7 @@ int jinglebellrock_tempo[] = {
 
 
 // Carol of the bells melody
-int carolofthebells_melody[] = {
+const int carolofthebells_melody[] PROGMEM = {
 
 NOTE_C5, NOTE_B4, NOTE_C5, NOTE_A4, 
 NOTE_C5, NOTE_B4, NOTE_C5, NOTE_A4, 
@@ -364,7 +365,7 @@ NOTE_E5, NOTE_D5, NOTE_E5, NOTE_A4
 };
 
 /// Carol of the bells tempo
-int carolofthebells_tempo[] = {
+const int carolofthebells_tempo[] PROGMEM = {
 
 12, 24, 24, 12, 
 12, 24, 24, 12, 
@@ -408,7 +409,7 @@ int carolofthebells_tempo[] = {
 };
 
 // Here comes the sun melody
-int herecomesthesun_melody[] = {
+const int herecomesthesun_melody[] PROGMEM = {
 
 0, NOTE_FS4, NOTE_D4, NOTE_E4, NOTE_FS4, 
 0, NOTE_FS4, NOTE_E4, NOTE_D4, 
@@ -436,7 +437,7 @@ NOTE_B3, NOTE_D4, NOTE_E4, NOTE_D4
 };
 
 /// Here comes the sun tempo
-int herecomesthesun_tempo[] = {
+const int herecomesthesun_tempo[] PROGMEM = {
 
 12, 24, 24, 24, 9, 
 12, 24, 24, 24, 9,
@@ -464,7 +465,7 @@ int herecomesthesun_tempo[] = {
 
 
 // Mele kalikimaka melody
-int melekalikimaka_melody[] = {
+const int melekalikimaka_melody[] PROGMEM = {
 
 NOTE_G4, NOTE_G4, NOTE_G4, NOTE_FS4, NOTE_G4, 
 NOTE_A4, NOTE_G4, NOTE_FS4, NOTE_G4, 
@@ -502,7 +503,7 @@ NOTE_C4
 };
 
 /// Mele kalikimaka tempo
-int melekalikimaka_tempo[] = {
+const int melekalikimaka_tempo[] PROGMEM = {
 
 24, 12, 24, 12, 12, 
 12, 12, 12, 12, 
