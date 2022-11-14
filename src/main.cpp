@@ -66,15 +66,19 @@ int genreButton_previous; //to handle genre toggle
 int genreButton;          //to handle genre toggle
 int buttonTimer = 0;
 int debounceTimer = 20;   //ms for debounce handling
+int lightScheme = 0;      //light scheme holder
+uint32_t lightTimer = 0;  //timer for light changes
+int lightDuration = 50;   //length between light changes
 
+void scheme_twinkle(void);
 
 void setup(void)
 {
   Serial.begin(9600);
  // while (!Serial){}
   pinMode(5, OUTPUT);//buzzer
-  CircuitPlayground.begin();
-  CircuitPlayground.setBrightness(255);
+  CircuitPlayground.begin(122);
+  //CircuitPlayground.setBrightness(255);
   newSong = true;
   genreButton = CircuitPlayground.rightButton();
   Serial.println("Setup complete");
@@ -120,6 +124,7 @@ void loop()
     }
     else if(songGenre == true)
     {
+      scheme_twinkle();
       songPlaying = & christmas[random(NUMELEMENTS(christmas))];
     }
     //songPlaying = & christmas[6]; //to select a particular song for testing
@@ -143,4 +148,28 @@ void loop()
       conductor += PACE;    //add a small delay to the end of the song
     }
   }
+
+  //update light brightness
+  if((int)(millis() - lightTimer) > lightDuration)
+  {
+    lightTimer = millis();
+    CircuitPlayground.strip.setBrightness(random(255));
+    CircuitPlayground.strip.show();
+  }
+}
+
+//twinkle the onboard neopixels
+//some solid red, others twinkle white
+void scheme_twinkle(void)
+{
+  for (int i =0; i<2; i++)
+  {
+    CircuitPlayground.strip.setPixelColor(5*i, 255,0,0);
+    CircuitPlayground.strip.setPixelColor(5*i+1, 255,255,255);
+    CircuitPlayground.strip.setPixelColor(5*i+2, 0,255,0);
+    CircuitPlayground.strip.setPixelColor(5*i+3, 255,255,255);
+    CircuitPlayground.strip.setPixelColor(5*i+4, 255,0,0);
+  }
+  CircuitPlayground.strip.show();
+  lightDuration = 500;
 }
