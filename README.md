@@ -2,10 +2,12 @@
 Circuit Playground christmas ornament
 
 This project is for the 2022 Make it Forward charity drive at Microsoft Vancouver
+Made with platformIO in VS Code.
 
 ## Intent
 This project will use the Adafruit Circuit Playground Classic (CPC) as a Christmas ornament. The CPC will play music using the basic tone generator and flash the Neopixels in a festiv manner. The design will include laser cut wooden housing to hold the CPC
-Planned feature list in sort of intended order
+<p>Planned feature list in sort of intended order
+
 1. Randomly play songs from memory - DONE
 2. Randomly flash Neopixels - DONE, but removed for more fancy effects
 3. Housing design to hold CPC and battery pack - DONE
