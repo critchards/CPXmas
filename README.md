@@ -1,7 +1,8 @@
 # CPXmas
 Circuit Playground christmas ornament
 
-This project is for the 2022 Make it Forward charity drive at Microsoft Vancouver
+This project is for the 2022 Make it Forward charity drive at Microsoft Vancouver.
+
 Made with platformIO in VS Code.
 
 ## Intent
