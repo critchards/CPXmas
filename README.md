@@ -13,5 +13,7 @@ Planned feature list in sort of intended order
 5. Light brightness control by button press, or maybe light pattern - DONE
 6. Song genre by button - DONE
 
+![CPXmas housing](/mech/20221206_123933.jpg)
+
 
 The original concept came from Playing Mario Bros on Arduino with Pieza brother by [Dipto Pratyaksa](http://www.linuxcircle.com/2013/03/31/playing-mario-bros-tune-with-arduino-and-piezo-buzzer/).
