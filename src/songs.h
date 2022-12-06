@@ -68,7 +68,7 @@ extern int const mario_tempo[] PROGMEM = {
   12, 12, 12, 12,
 };
 
-//Underworld melody
+//mario Underworld melody
 extern int const underworld_melody[] PROGMEM = {
   NOTE_C4, NOTE_C5, NOTE_A3, NOTE_A4, 
   NOTE_AS3, NOTE_AS4, 0,
@@ -114,6 +114,7 @@ extern int const underworld_tempo[] PROGMEM = {
   3, 3, 3
 };
 
+//pirates of the carribean
 extern int const pirates_melody[] PROGMEM= {
   NOTE_E4, NOTE_G4, NOTE_A4, NOTE_A4, 0,
   NOTE_A4, NOTE_B4, NOTE_C5, NOTE_C5, 0,
@@ -168,57 +169,128 @@ extern int const pirates_melody[] PROGMEM= {
   NOTE_B4, NOTE_C5, 0, NOTE_B4, 0, NOTE_A4};
 
 const int pirates_tempo[] PROGMEM = {
-  125, 125, 250, 125, 125,
-  125, 125, 250, 125, 125,
-  125, 125, 250, 125, 125,
-  125, 125, 375, 125,
+  8, 8, 4, 8, 8,
+  8, 8, 4, 8, 8,
+  8, 8, 4, 8, 8,
+  8, 8, 3, 8,
 
-  125, 125, 250, 125, 125,
-  125, 125, 250, 125, 125,
-  125, 125, 250, 125, 125,
-  125, 125, 375, 125,
+  8, 8, 4, 8, 8,
+  8, 8, 4, 8, 8,
+  8, 8, 4, 8, 8,
+  8, 8, 3, 8,
 
-  125, 125, 250, 125, 125,
-  125, 125, 250, 125, 125,
-  125, 125, 250, 125, 125,
-  125, 125, 125, 250, 125,
+  8, 8, 4, 8, 8,
+  8, 8, 4, 8, 8,
+  8, 8, 4, 8, 8,
+  8, 8, 8, 4, 8,
 
-  125, 125, 250, 125, 125,
-  250, 125, 250, 125,
-  125, 125, 250, 125, 125,
-  125, 125, 375, 375,
+  8, 8, 4, 8, 8,
+  4, 8, 4, 8,
+  8, 8, 4, 8, 8,
+  8, 8, 3, 3,
 
-  250, 125,
+  4, 8,
   //Rpeat of First Part
-  125, 125, 250, 125, 125,
-  125, 125, 250, 125, 125,
-  125, 125, 375, 125,
+  8, 8, 4, 8, 8,
+  8, 8, 4, 8, 8,
+  8, 8, 3, 8,
 
-  125, 125, 250, 125, 125,
-  125, 125, 250, 125, 125,
-  125, 125, 250, 125, 125,
-  125, 125, 375, 125,
+  8, 8, 4, 8, 8,
+  8, 8, 4, 8, 8,
+  8, 8, 4, 8, 8,
+  8, 8, 3, 8,
 
-  125, 125, 250, 125, 125,
-  125, 125, 250, 125, 125,
-  125, 125, 250, 125, 125,
-  125, 125, 125, 250, 125,
+  8, 8, 4, 8, 8,
+  8, 8, 4, 8, 8,
+  8, 8, 4, 8, 8,
+  8, 8, 8, 4, 8,
 
-  125, 125, 250, 125, 125,
-  250, 125, 250, 125,
-  125, 125, 250, 125, 125,
-  125, 125, 375, 375,
+  8, 8, 4, 8, 8,
+  4, 8, 4, 8,
+  8, 8, 4, 8, 8,
+  8, 8, 3, 3,
   //End of Repeat
 
-  250, 125, 375, 250, 125, 375,
-  125, 125, 125, 125, 125, 125, 125, 125, 375,
-  250, 125, 375, 250, 125, 375,
-  125, 125, 125, 125, 125, 500,
+  4, 8, 3, 4, 8, 3,
+  8, 8, 8, 8, 8, 8, 8, 8, 3,
+  4, 8, 3, 4, 8, 3,
+  8, 8, 8, 8, 8, 2,
 
-  250, 125, 375, 250, 125, 375,
-  125, 125, 125, 125, 125, 125, 125, 125, 375,
-  250, 125, 375, 250, 125, 375,
-  125, 125, 125, 125, 125, 500};
+  4, 8, 3, 4, 8, 3,
+  8, 8, 8, 8, 8, 8, 8, 8, 3,
+  4, 8, 3, 4, 8, 3,
+  8, 8, 8, 8, 8, 2};
+
+const int zelda_melody[] PROGMEM = {
+
+  //Based on the arrangement at https://www.flutetunes.com/tunes.php?id=169
+  
+  NOTE_AS4,  NOTE_F4,  NOTE_F4,  NOTE_AS4,//1
+  NOTE_GS4,  NOTE_FS4,  NOTE_GS4,
+  NOTE_AS4,  NOTE_FS4,  NOTE_FS4,  NOTE_AS4,
+  NOTE_A4,  NOTE_G4,  NOTE_A4,
+  0, 
+
+  NOTE_AS4,  NOTE_F4,  NOTE_AS4,  NOTE_AS4,  NOTE_C5, NOTE_D5, NOTE_DS5,//7
+  NOTE_F5,  NOTE_F5,  NOTE_F5,  NOTE_F5,  NOTE_FS5, NOTE_GS5,
+  NOTE_AS5,  NOTE_AS5,  NOTE_AS5,  NOTE_GS5,  NOTE_FS5,
+  NOTE_GS5,  NOTE_FS5,  NOTE_F5,  NOTE_F5, 
+
+  NOTE_DS5, NOTE_F5, NOTE_FS5, NOTE_F5, NOTE_DS5, //11
+  NOTE_CS5, NOTE_DS5, NOTE_F5, NOTE_DS5, NOTE_CS5,
+  NOTE_C5, NOTE_D5, NOTE_E5, NOTE_G5, 
+  NOTE_F5, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_F4,
+
+  NOTE_AS4,  NOTE_F4,  NOTE_AS4,  NOTE_AS4,  NOTE_C5, NOTE_D5, NOTE_DS5,//15
+  NOTE_F5,  NOTE_F5,  NOTE_F5,  NOTE_F5,  NOTE_FS5, NOTE_GS5,
+  NOTE_AS5, NOTE_CS6,
+  NOTE_C6, NOTE_A5, NOTE_F5,
+  NOTE_FS5, NOTE_AS5,
+  NOTE_A5, NOTE_F5, NOTE_F5,
+
+  NOTE_FS5, NOTE_AS5,
+  NOTE_A5, NOTE_F5, NOTE_D5,
+  NOTE_DS5, NOTE_FS5,
+  NOTE_F5, NOTE_CS5, NOTE_AS4,
+  NOTE_C5, NOTE_D5, NOTE_E5, NOTE_G5,
+  NOTE_F5, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_F4, NOTE_F4
+};
+
+const int zelda_tempo[] PROGMEM = {
+
+  //Based on the arrangement at https://www.flutetunes.com/tunes.php?id=169
+  
+  3,  8,  8,  8,//1
+  16,  16, 3,
+  3,  8,  8,  8,
+  16,  16,  3,
+  4, 
+
+  4,  4,  8,  16,  16, 16, 16,//7
+  2,  8,  8,  8,  16, 16,
+  3,  8,  8,  8,  16,
+  12,  16,  2,  4, 
+
+  12, 16, 2, 8, 8, //11
+  12, 16, 2, 8, 8,
+  12, 16, 2, 8, 
+  16, 16, 16, 16, 16, 16, 16, 16, 8, 16, 8,
+
+  4,  4,  8,  16,  16, 16, 16,//15
+  2,  8,  8,  8,  16, 16,
+  3, 4,
+  4, 2, 4,
+  3, 4,
+  4, 2, 4,
+
+  3, 4,
+  4, 2, 4,
+  3, 4,
+  4, 2, 4,
+  12, 16, 2, 8, 
+  16, 16, 16, 16, 16, 16, 16, 16, 8, 16, 8
+  
+};
 
  //jinglebells
 const int jingle_melody[] PROGMEM = {
