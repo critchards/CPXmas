@@ -21,7 +21,6 @@
 #define melodyPin 5                               //Circuit playground onbvoard LED and Buzzer Pin
 
 const int PACE = 5000;          //scale factor that handles time between songs and other timings
-const int TWINKLESPEED = 50;   //how fast the lights will update 
 
 //copied TwinkleFox example from FastLED library https://github.com/FastLED/FastLED/blob/master/examples/TwinkleFox/TwinkleFox.ino
 //*********************************************
@@ -49,7 +48,7 @@ CRGB computeOneTwinkle( uint32_t ms, uint8_t salt);
 uint8_t attackDecayWave8( uint8_t i);
 void coolLikeIncandescent( CRGB& c, uint8_t phase);
 void chooseNextColorPalette( CRGBPalette16& pal);
-//*********************************************
+//*****************************************************************
 
 //void buzz(int, long, long);                               
 void playSong(SONGS * matrix, int track); 
@@ -96,11 +95,13 @@ int lightButton;
 int buttonTimer = 0;
 int debounceTimer = 20;   //ms for debounce handling
 
+//set some neopixels colors. There are better ways to do this but Im just learning
 void light_redWhiteGreen(void);
 void light_whiteBlue(void);
 
 void setup(void)
 {
+  //for Fastled twinklefox
   delay(3000);
   FastLED.setMaxPowerInVoltsAndMilliamps( VOLTS, MAX_MA);
   FastLED.addLeds<LED_TYPE,DATA_PIN,COLOR_ORDER>(leds, NUM_LEDS)
@@ -108,16 +109,13 @@ void setup(void)
   chooseNextColorPalette(gTargetPalette);
 
   Serial.begin(9600);
- // while (!Serial){}
-  pinMode(5, OUTPUT);//buzzer
+  pinMode(5, OUTPUT);               //buzzer
   CircuitPlayground.begin(122);
-  //CircuitPlayground.setBrightness(255);
   newSong = true;
   newLight = false;
   lightScheme = 0;
   playMusic = false;
   twinkle = false;
-  //genreButton = CircuitPlayground.rightButton();
   Serial.println("Setup complete");
 }
 
@@ -159,7 +157,7 @@ void loop()
   {
     lightButton_previous = CircuitPlayground.leftButton();
     lightScheme++;
-    if(lightScheme > LIGHTPATTERNS-1)
+    if(lightScheme >= LIGHTPATTERNS)
     {
       lightScheme = 0;
     }
@@ -181,12 +179,14 @@ void loop()
       songPlaying = & christmas[random(NUMELEMENTS(christmas))];
     }
     //songPlaying = & christmas[6]; //to select a particular song for testing
+    //songPlaying = & games[2];      //to select a particular song for testing
     currentNote = 0;
     noteDuration = songPlaying->beat_ms / (int )pgm_read_word_near(&(songPlaying->tempos[currentNote]));
     newSong = false;
   }
 
   //play the next note in the sequence only when it has been long enough since the last note started and playMusic is true
+  //add a small delay between notes for definition, 1.3 *duration seems to work
   if(((int)(millis() - conductor) > noteDuration * 1.3)  && playMusic)
   {
     conductor = millis();
@@ -231,7 +231,7 @@ void loop()
     CircuitPlayground.strip.show();
   }
 
-  //twinkle lights by ramping with sine of elapsed time
+  //run the fastled twinklefox example
   if(twinkle)
   {
     EVERY_N_SECONDS( SECONDS_PER_PALETTE ) { 
@@ -248,6 +248,7 @@ void loop()
   }
 }
 
+//set the neopixels to solid red, white, green
 void light_redWhiteGreen(void)
 {
   for (int i =0; i<2; i++)
@@ -260,7 +261,7 @@ void light_redWhiteGreen(void)
   }
 }
 
-//cool white and blue lights
+//set the neopixles to cool white and blue lights
 void light_whiteBlue(void)
 {
   for (int i =0; i<2; i++)
@@ -383,7 +384,7 @@ CRGB computeOneTwinkle( uint32_t ms, uint8_t salt)
 }
 
 
-// This function is like 'triwave8', which produces a 
+/* This function is like 'triwave8', which produces a 
 // symmetrical up-and-down triangle sawtooth waveform, except that this
 // function produces a triangle wave with a faster attack and a slower decay:
 //
@@ -392,6 +393,7 @@ CRGB computeOneTwinkle( uint32_t ms, uint8_t salt)
 //   /         \ 
 //  /             \ 
 //
+*/
 
 uint8_t attackDecayWave8( uint8_t i)
 {
