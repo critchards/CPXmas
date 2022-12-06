@@ -70,7 +70,9 @@ SONGS christmas[] =
   {santaclaus_melody, santaclaus_tempo, NUMELEMENTS(santaclaus_melody), 2000},
   {jinglebellrock_melody, jinglebellrock_tempo, NUMELEMENTS(jinglebellrock_melody), 2500},
   {carolofthebells_melody, carolofthebells_tempo, NUMELEMENTS(carolofthebells_melody), 2500},
-  {herecomesthesun_melody, herecomesthesun_tempo, NUMELEMENTS(herecomesthesun_melody), 5000}
+  {herecomesthesun_melody, herecomesthesun_tempo, NUMELEMENTS(herecomesthesun_melody), 5000},
+  {melekalikimaka_melody, melekalikimaka_tempo, NUMELEMENTS(melekalikimaka_melody), 5000}
+  
 };
 
 bool newSong;             //flag to handle when a new song is playing
