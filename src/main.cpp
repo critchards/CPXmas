@@ -40,6 +40,7 @@ SONGS games[] =
 {
   {mario_melody, mario_tempo, NUMELEMENTS(mario_melody), 1200},
   {underworld_melody, underworld_tempo, NUMELEMENTS(underworld_melody), 1600},
+  {pirates_melody, pirates_tempo, NUMELEMENTS(pirates_melody), 1200}
 };
 
 //collection of christmas and pop songs
