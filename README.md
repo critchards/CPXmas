@@ -16,6 +16,8 @@ This project will use the Adafruit Circuit Playground Classic (CPC) as a Christm
 5. Light brightness control by button press, or maybe light pattern - DONE
 6. Song genre by button - DONE
 
+  Note: Running the fastled example makes the tones 'buzz'. Didnt have time to look into why, something to do with timer usage I think.
+  
 ![CPXmas housing](/mech/20221206_123933.jpg)
 
 
