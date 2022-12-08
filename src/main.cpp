@@ -84,7 +84,7 @@ uint32_t conductor = 0;   //timer for note duration
 int noteDuration;         //length of current note in ms
 int currentNote;          //frequency value of current note
 
-bool songGenre = false;   //FALSE for games, TRUE for pop
+bool songGenre;           //FALSE for games, TRUE for Christmas
 int genreButton_previous; //to handle genre toggle
 int genreButton;          
 
@@ -119,6 +119,7 @@ void setup(void)
   lightScheme = 0;
   playMusic = false;
   twinkle = false;
+  songGenre = true;                 //default to christmas music
   Serial.println("Setup complete");
 }
 
